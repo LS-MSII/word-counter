@@ -1,7 +1,7 @@
 import {Word} from "./Word";
 
 export class Text {
-    rawText: string
+    private rawText: string
 
     constructor(text: string) {
         this.rawText = text
@@ -10,7 +10,8 @@ export class Text {
     public getWords(): Array<Word> {
         const normalizedText = this.rawText.replaceAll(new RegExp(/[.,!?]/, "g"), "")
         const rawWords = normalizedText.split(" ")
+        console.log(rawWords)
 
-        return rawWords.map((rawWord) => new Word(rawWord))
+        return Word.wordsFromStringArray(rawWords)
     }
 }
