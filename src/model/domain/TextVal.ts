@@ -1,6 +1,6 @@
 import {Word} from "./Word";
 
-export class Text {
+export class TextVal {
     private rawText: string
 
     constructor(text: string) {

@@ -1,6 +1,6 @@
 import WordCounter from "../model/application/WordCounter";
 import {NoFilter} from "../model/domain/filter/concrete-filter/NoFilter";
-import {Text} from "../model/domain/Text";
+import {TextVal} from "../model/domain/TextVal";
 import {VowelStartFilter} from "../model/domain/filter/concrete-filter/VowelStartFilter";
 import {MoreThanLengthFilter} from "../model/domain/filter/concrete-filter/MoreThanLengthFilter";
 import KeyWordFilter from "../model/domain/filter/concrete-filter/KeyWordFilter";
@@ -11,7 +11,7 @@ export class Main {
     public static main() {
         const rawText = "This is a cool text that serves as a test game for the word counter example. Don't make me a hyper-architect's design. I see you, arr!"
 
-        const text = new Text(rawText)
+        const text = new TextVal(rawText)
         const counter = new WordCounter()
 
         const noFilter = new NoFilter()
