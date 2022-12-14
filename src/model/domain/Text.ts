@@ -10,7 +10,6 @@ export class Text {
     public getWords(): Array<Word> {
         const normalizedText = this.rawText.replaceAll(new RegExp(/[.,!?]/, "g"), "")
         const rawWords = normalizedText.split(" ")
-        console.log(rawWords)
 
         return Word.wordsFromStringArray(rawWords)
     }
