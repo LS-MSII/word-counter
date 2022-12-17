@@ -27,20 +27,20 @@ export class Main {
         const keyWordFilter = new KeyWordFilter(keywords)
         console.log("Keywords: " + counter.count(text, keyWordFilter))
 
-        const startWithVowelAndHasMoreThanTwoCharactersFilterChain = FilterChain.startWith(vowelStartFilter)
-            startWithVowelAndHasMoreThanTwoCharactersFilterChain.setNext(moreThanTwoCharactersFilter)
+        const fc1Chain = FilterChain.startWith(vowelStartFilter)
+            fc1Chain.setNext(moreThanTwoCharactersFilter)
         console.log("Starts with vowel and has more than two characters: "
-            + counter.count(text, startWithVowelAndHasMoreThanTwoCharactersFilterChain))
+            + counter.count(text, fc1Chain))
 
-        const keywordsThatStartWithVowelFilterChain = FilterChain.startWith(keyWordFilter)
-                keywordsThatStartWithVowelFilterChain.setNext(vowelStartFilter)
+        const fc2Chain = FilterChain.startWith(keyWordFilter)
+                fc2Chain.setNext(vowelStartFilter)
         console.log("Keywords that start with vowel: "
-            + counter.count(text, keywordsThatStartWithVowelFilterChain))
+            + counter.count(text, fc2Chain))
 
-        const keywordsThatStartWithVowelWithMoreThanTwoCharactersFilterChain = FilterChain.startWith(keyWordFilter)
-                keywordsThatStartWithVowelWithMoreThanTwoCharactersFilterChain
-                    .setNext(startWithVowelAndHasMoreThanTwoCharactersFilterChain)
+        const fc3Chain = FilterChain.startWith(keyWordFilter)
+                fc3Chain
+                    .setNext(fc1Chain)
         console.log("Keywords that start with vowel with more than two characters: "
-            + counter.count(text, keywordsThatStartWithVowelWithMoreThanTwoCharactersFilterChain))
+            + counter.count(text, fc3Chain))
     }
 }
