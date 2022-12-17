@@ -3,6 +3,7 @@ import {Word} from "../../Word";
 import NegationOperator from "../filter-operator/NegationOperator";
 import AndOperator from "../filter-operator/AndOperator";
 import OrOperator from "../filter-operator/OrOperator";
+import Express from "./Express";
 
 export default class ExpressionDsl {
     protected innerFilter: Filter;
@@ -15,23 +16,20 @@ export default class ExpressionDsl {
         return this.innerFilter.apply(word);
     }
 
-    private expression(filter: Filter): ExpressionDsl {
-        return new ExpressionDsl(filter);
+
+    public orBy(filter: Filter): ExpressionDsl {
+        return Express.toFilterBy(new OrOperator(this, filter));
     }
 
-    public or(filter: Filter): ExpressionDsl {
-        return this.expression(new OrOperator(this, filter));
+    public orByNot(filter: Filter): ExpressionDsl {
+        return Express.toFilterBy(new OrOperator(this, new NegationOperator(filter)));
     }
 
-    public orNot(filter: Filter): ExpressionDsl {
-        return this.expression(new OrOperator(this, new NegationOperator(filter)));
+    public andBy(filter: Filter): ExpressionDsl {
+        return Express.toFilterBy(new AndOperator(this, filter));
     }
 
-    public and(filter: Filter): ExpressionDsl {
-        return this.expression(new AndOperator(this, filter));
-    }
-
-    public andNot(filter: Filter): ExpressionDsl {
-        return this.expression(new AndOperator(this, new NegationOperator(filter)));
+    public andByNot(filter: Filter): ExpressionDsl {
+        return Express.toFilterBy(new AndOperator(this, new NegationOperator(filter)));
     }
 }

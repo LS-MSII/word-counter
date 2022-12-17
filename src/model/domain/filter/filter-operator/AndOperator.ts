@@ -5,5 +5,4 @@ export default class AndOperator extends BinaryOperator {
     public apply(word: Word): Boolean {
         return this.left.apply(word) && this.right.apply(word);
     }
-
 }

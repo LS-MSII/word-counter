@@ -6,6 +6,8 @@ import {MoreThanLengthFilter} from "../model/domain/filter/concrete-filter/MoreT
 import KeyWordFilter from "../model/domain/filter/concrete-filter/KeyWordFilter";
 import {Word} from "../model/domain/Word";
 import {FilterChain} from "../model/domain/filter/concrete-filter/FilterChain";
+import ExpressionDsl from "../model/domain/filter/expression-dsl/ExpressionDsl";
+import Express from "../model/domain/filter/expression-dsl/Express";
 
 export class Main {
     public static main() {
@@ -43,6 +45,14 @@ export class Main {
         console.log("Keywords that start with vowel with more than two characters: "
             + counter.count(text, fc3Chain))
 
+        const fdsl1 = Express.toFilterBy(keyWordFilter).andByNot(vowelStartFilter)
+        console.log("Keywords that do not start with a vowel: "
+            + counter.count(text, fdsl1))
+
+        const fdsl2 = Express.toFilterBy(vowelStartFilter)
+            .orBy(Express.toFilterBy(vowelStartFilter).andByNot(moreThanTwoCharactersFilter))
+        console.log("Words that do not start with a vowel or that do start with a vowel but have more than two characters: "
+            + counter.count(text, fdsl2))
 
     }
 }
