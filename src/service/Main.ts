@@ -42,5 +42,7 @@ export class Main {
                     .setNext(fc1Chain)
         console.log("Keywords that start with vowel with more than two characters: "
             + counter.count(text, fc3Chain))
+
+
     }
 }
