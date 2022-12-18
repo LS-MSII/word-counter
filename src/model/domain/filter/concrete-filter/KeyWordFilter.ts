@@ -8,7 +8,7 @@ export default class KeyWordFilter implements Filter {
         this.keywordsToTest = keywords
     }
 
-    apply(word: Word): Boolean {
+    public apply(word: Word): Boolean {
         return this.keywordsToTest.map(w => w.getRaw()).includes(word.getRaw().toLowerCase())
     }
 

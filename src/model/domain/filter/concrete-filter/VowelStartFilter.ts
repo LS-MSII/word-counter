@@ -2,7 +2,7 @@ import {Filter} from "../Filter";
 import {Word} from "../../Word";
 
 export class VowelStartFilter implements Filter {
-    apply(word: Word): Boolean {
+    public apply(word: Word): Boolean {
         const vowelsToTest = ["a", "e", "i", "o", "u"]
         const wordFirstCharacter = word.getRaw().at(0)
 
