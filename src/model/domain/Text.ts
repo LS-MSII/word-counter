@@ -1,7 +1,7 @@
 import {Word} from "./Word";
 
 export class Text {
-    rawText: string
+    private rawText: string
 
     constructor(text: string) {
         this.rawText = text
