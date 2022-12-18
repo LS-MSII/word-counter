@@ -4,7 +4,7 @@ import {Text} from "../model/domain/Text";
 
 export class Main {
     public static main() {
-        const rawText = "This is a cool text that serves as a test game for the word counting kata. Don't make me a hyper-architect's design. I see you, huh."
+        const rawText = "This is a cool text that serves as a test game for the word counter example. Don't make me a hyper-architect's design. I see you, arr!"
 
         const text = new Text(rawText)
         const counter = new WordCounter()
