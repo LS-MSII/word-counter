@@ -1,5 +1,5 @@
 export class Word {
-    rawWord: string
+    private rawWord: string
 
     constructor(rawWord: string) {
         this.rawWord = rawWord
