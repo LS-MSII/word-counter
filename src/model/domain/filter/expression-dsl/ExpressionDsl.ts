@@ -5,7 +5,7 @@ import AndOperator from "../filter-operator/AndOperator";
 import OrOperator from "../filter-operator/OrOperator";
 import Express from "./Express";
 
-export default class ExpressionDsl {
+export default class ExpressionDsl implements Filter {
     protected innerFilter: Filter;
 
     constructor(filter: Filter) {
@@ -15,7 +15,6 @@ export default class ExpressionDsl {
     public apply(word: Word): Boolean {
         return this.innerFilter.apply(word);
     }
-
 
     public orBy(filter: Filter): ExpressionDsl {
         return Express.toFilterBy(new OrOperator(this, filter));
