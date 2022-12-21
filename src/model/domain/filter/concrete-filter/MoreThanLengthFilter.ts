@@ -8,7 +8,7 @@ export class MoreThanLengthFilter implements Filter {
         this.wordLengthToTest = length
     }
 
-    public apply(word: Word): boolean {
+    apply(word: Word): boolean {
         return word.getRaw().length > this.wordLengthToTest;
     }
 
