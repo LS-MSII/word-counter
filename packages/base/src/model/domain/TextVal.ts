@@ -1,0 +1,16 @@
+import {Word} from "./Word";
+
+export class TextVal {
+    private rawText: string
+
+    public constructor(text: string) {
+        this.rawText = text
+    }
+
+    public getWords(): Array<Word> {
+        const normalizedText = this.rawText.replaceAll(new RegExp(/[.,!?]/, "g"), "")
+        const rawWords = normalizedText.split(" ")
+
+        return Word.wordsFromStringArray(rawWords)
+    }
+}
