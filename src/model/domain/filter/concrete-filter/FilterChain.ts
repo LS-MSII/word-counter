@@ -16,7 +16,7 @@ export class FilterChain implements Filter {
         return new FilterChain(filter)
     }
 
-    apply(word: Word): Boolean {
+    apply(word: Word): boolean {
         const result = this.innerFilter.apply(word)
 
         if (!this.hasNext()) {
