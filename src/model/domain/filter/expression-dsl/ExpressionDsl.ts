@@ -12,7 +12,7 @@ export default class ExpressionDsl implements Filter {
         this.innerFilter = filter;
     }
 
-    public apply(word: Word): Boolean {
+    public apply(word: Word): boolean {
         return this.innerFilter.apply(word);
     }
 

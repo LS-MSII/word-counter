@@ -11,5 +11,5 @@ export default abstract class BinaryOperator implements Operator {
         this.right = right;
     }
 
-    public abstract apply(word: Word): Boolean
+    public abstract apply(word: Word): boolean
 }

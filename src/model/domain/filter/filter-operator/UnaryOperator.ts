@@ -9,5 +9,5 @@ export default abstract class UnaryOperator implements Operator {
         this.operand = operand;
     }
 
-    public abstract apply(word: Word): Boolean
+    public abstract apply(word: Word): boolean
 }
