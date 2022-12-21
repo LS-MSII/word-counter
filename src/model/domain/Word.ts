@@ -1,7 +1,7 @@
 export class Word {
     private rawWord: string
 
-    constructor(rawWord: string) {
+    public constructor(rawWord: string) {
         this.rawWord = rawWord
     }
 

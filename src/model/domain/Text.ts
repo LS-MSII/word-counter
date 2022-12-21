@@ -3,7 +3,7 @@ import {Word} from "./Word";
 export class Text {
     private rawText: string
 
-    constructor(text: string) {
+    public constructor(text: string) {
         this.rawText = text
     }
 
